@@ -37,12 +37,15 @@
 					break;
 			}
 			display = result;
+			isDisplayingResults = true;
 		}
 		selectedOperator = operator;
-		isDisplayingResults = true;
 	};
 
 	const handleSelectedNumber = (number: string) => {
+		if (isDisplayingResults) {
+			clearDisplay();
+		}
 		if (display === "" && number === "0") return;
 		if (number === "." && display.includes(".")) return;
 
